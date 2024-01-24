@@ -1,4 +1,3 @@
-import { padding } from "@mui/system";
 import { rem } from "../../utils/functions";
 
 export const styles = {

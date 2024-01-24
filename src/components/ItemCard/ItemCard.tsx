@@ -1,6 +1,5 @@
-import {Card, Grid, Skeleton, Typography } from "@mui/material";
+import {Grid} from "@mui/material";
 import { useState } from "react";
-import { rem } from "../../utils/functions";
 import { IObject } from "../../utils/types";
 import Image from "./Image";
 import { styles } from "./itemCardStyles";
@@ -16,14 +15,6 @@ export const ItemCard = ({ item }: IObject) => {
   const [loaded, setLoaded] = useState<IObject>({
     loaded : null
   });
-
-  const handleImageLoaded = (id: string) => {
-    setLoaded({ ...loaded, [id]: true });
-  };
-
-  const handleImageError = (id: string) => {
-    setLoaded({ ...loaded, [id]: false });
-  };
 
   return (
     <Grid

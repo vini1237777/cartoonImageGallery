@@ -14,7 +14,8 @@ export const styles = {
     overflow: "hidden",
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
-    paddingLeft: rem(10),
-    paddingRight: rem(10),
+    paddingLeft: rem(13),
+    paddingRight: rem(13),
+    paddingTop: rem(10),
   },
 };

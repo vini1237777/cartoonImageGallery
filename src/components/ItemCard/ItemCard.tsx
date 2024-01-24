@@ -24,6 +24,7 @@ export const ItemCard = ({ item }: IObject) => {
           src={item.image}
           alt={item.name}
           style={{ ...styles.responsiveImage }}
+          loading="lazy"
         />
         <Typography align="center" sx={{ color: "gray", fontWeight: "bold" }}>
           {item.name}

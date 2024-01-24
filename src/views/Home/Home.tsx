@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React from "react";
 import { ItemList } from "../../components/ItemList/ItemList";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { ToastContainer} from "react-toastify";
@@ -12,7 +12,6 @@ import Error from "../../components/Error/Error";
 import Description from "../../components/Description/Description";
 
 const Home = () => {
-  const [searchTerm, setSearchTerm] = useState<string>("");
 
 
     const {
@@ -23,13 +22,12 @@ const Home = () => {
       setUrl,
       setPage,
       hasMore,
-    } = useFetchGallery(searchTerm);
+      inputRef,
+      search,
+      setSearch
+    } = useFetchGallery();
 
 
- 
-  const handleSearch = (searchedText: string) => {
-     setSearchTerm(searchedText);
-   };
 
    const fetchMoreData = () => {
     if (next){
@@ -43,8 +41,12 @@ const Home = () => {
 
   return (
     <Box sx={{ ...styles }}>
-      <Description/>
-      <SearchBar value={searchTerm} handleSearch={handleSearch} />
+      <Description />
+      <SearchBar
+        searchValue={search}
+        onSearch={setSearch}
+        ref={inputRef}
+      />
       {loading ? (
         <ItemSkeleton count={10} />
       ) : (
@@ -52,7 +54,7 @@ const Home = () => {
           <ItemList items={data} fetchData={fetchMoreData} hasMore={hasMore} />
         )
       )}
-    {error  && <Error />}
+      {error && <Error />}
       <ToastContainer position="bottom-right" autoClose={5000} />
     </Box>
   );

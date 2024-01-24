@@ -1,6 +1,8 @@
-import {Card, Grid, Typography } from "@mui/material";
+import {Card, Grid, Skeleton, Typography } from "@mui/material";
+import { useState } from "react";
 import { rem } from "../../utils/functions";
 import { IObject } from "../../utils/types";
+import Image from "./Image";
 import { styles } from "./itemCardStyles";
 
 const myGridItemStyle = {
@@ -10,6 +12,19 @@ const myGridItemStyle = {
 };
 
 export const ItemCard = ({ item }: IObject) => {
+
+  const [loaded, setLoaded] = useState<IObject>({
+    loaded : null
+  });
+
+  const handleImageLoaded = (id: string) => {
+    setLoaded({ ...loaded, [id]: true });
+  };
+
+  const handleImageError = (id: string) => {
+    setLoaded({ ...loaded, [id]: false });
+  };
+
   return (
     <Grid
       container
@@ -20,22 +35,7 @@ export const ItemCard = ({ item }: IObject) => {
       lg={3}
       sx={{ ...myGridItemStyle, ...styles.container }}
     >
-      <Card
-        sx={{
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
-          paddingBottom: rem(20),
-        }}
-      >
-        <img
-          src={item.image}
-          alt={item.name}
-          style={{ ...styles.responsiveImage }}
-          loading="lazy"
-        />
-        <Typography align="center" sx={{...styles.text ,color: "gray", fontWeight: "bold" }}>
-          {item.name}
-        </Typography>
-      </Card>
+    <Image item={item} loaded={loaded} setLoaded={setLoaded}/>
     </Grid>
   );
 };

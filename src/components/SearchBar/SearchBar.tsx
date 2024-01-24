@@ -5,17 +5,18 @@ import { anyFunction } from "../../utils/types";
 import { styles } from "./SearchBarStyles";
 
 interface IProps {
-  value: string;
-  handleSearch: anyFunction;
+  searchValue: string;
+  onSearch: anyFunction;
 }
 
-export const SearchBar = ({ value, handleSearch }: IProps) => (
+export const SearchBar = React.forwardRef(({ searchValue, onSearch }: IProps, ref) => (
   <Box sx={{ ...styles }}>
     <TextField
       fullWidth
       label="Search"
-      value={value}
-      onChange={(e) => handleSearch(e.target.value)}
+      inputRef={ref}
+      value={searchValue}
+      onChange={(e) => onSearch(e.target.value)}
       InputProps={{
         endAdornment: (
           <InputAdornment position="start">
@@ -25,4 +26,4 @@ export const SearchBar = ({ value, handleSearch }: IProps) => (
       }}
     />
   </Box>
-);
+));

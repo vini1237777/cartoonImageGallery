@@ -32,7 +32,7 @@ export const ItemCard = ({ item }: IObject) => {
           style={{ ...styles.responsiveImage }}
           loading="lazy"
         />
-        <Typography align="center" sx={{ color: "gray", fontWeight: "bold" }}>
+        <Typography align="center" sx={{...styles.text ,color: "gray", fontWeight: "bold" }}>
           {item.name}
         </Typography>
       </Card>

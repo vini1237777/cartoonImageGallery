@@ -10,4 +10,10 @@ export const styles = {
     width: "100%",
     height: "auto",
   },
+
+  text: {
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis'
+}
 };

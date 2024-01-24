@@ -1,4 +1,5 @@
 import {Card, Grid, Typography } from "@mui/material";
+import { rem } from "../../utils/functions";
 import { IObject } from "../../utils/types";
 import { styles } from "./itemCardStyles";
 
@@ -19,7 +20,12 @@ export const ItemCard = ({ item }: IObject) => {
       lg={3}
       sx={{ ...myGridItemStyle, ...styles.container }}
     >
-      <Card sx={{ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)" }}>
+      <Card
+        sx={{
+          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
+          paddingBottom: rem(20),
+        }}
+      >
         <img
           src={item.image}
           alt={item.name}

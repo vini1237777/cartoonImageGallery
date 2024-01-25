@@ -59,7 +59,7 @@ export const useGetCharacters = () => {
             typeof onError === "function" && onError();
           });
       },
-      []
+      [setData, setError,setLoading]
     );
 
 

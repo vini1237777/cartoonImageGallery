@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 export const useDebounceRef = (value: string, delay: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   const currentValRef = useRef(value);
-  console.log({ currentValRef });
   
   useEffect(() => {
     currentValRef.current = value; 

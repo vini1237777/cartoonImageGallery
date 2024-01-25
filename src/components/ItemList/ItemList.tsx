@@ -9,7 +9,6 @@ import { rem } from '../../utils/functions';
 
 
 export const ItemList = ({ items, setPage, hasMore, search }: IObject) => {
-  console.log({ hasMore });
   return search === undefined ? (
     <Box style={{ width: "auto", minHeight: "100vh", marginTop: "4rem" }}>
       <Grid container spacing={2} sx={{ ...styles.container }}>

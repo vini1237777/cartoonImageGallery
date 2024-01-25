@@ -13,7 +13,7 @@ export const styles = {
    backgroundColor:'black'
   },
   textfield:{
-    width:'70%'
+    width:'90%'
   }
 //   input:{borderColor:'black'},
 //   input_dark: {},

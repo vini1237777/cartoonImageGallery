@@ -8,52 +8,48 @@ import ItemSkeleton from '../ItemSkeleton/ItemSkeleton';
 import { rem } from '../../utils/functions';
 
 
-export const ItemList = ({ items, setPage, hasMore, search }: IObject) => {
+export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
 
 
   const theme = useTheme();
   const styles = listStyles(theme);
 
   return search === undefined ? (
-    <Box sx={{ ...styles.container, minHeight: "100vh" }}>
-      <Grid container spacing={2}>
+    <Box sx={{ minHeight: "100vh" }}>
+      <Grid container spacing={2} sx={{ ...styles.container }}>
         {items &&
           items.map((item: IObject) => <ItemCard key={item.id} item={item} />)}
       </Grid>
     </Box>
   ) : (
-    <Box sx={{ ...styles.container, minHeight: "100vh" }}>
-      <InfiniteScroll
-        dataLength={items.length}
-        next={() => {
-          setPage((prevPage: number) => {
-            return prevPage + 1;
-          });
-        }}
-        hasMore={!!hasMore}
-        loader={<ItemSkeleton count={4} />}
-        endMessage={
-          <Typography
-            style={{
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: rem(20),
-              marginTop: rem(10),
-            }}
-          >
-            Yay! You have seen it all
-          </Typography>
-        }
-        scrollThreshold={"90%"}
-      >
+    <InfiniteScroll
+      dataLength={items.length}
+      next={loadMore}
+      hasMore={!!hasMore}
+      loader={<ItemSkeleton count={4} />}
+      endMessage={
+        <Typography
+          style={{
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: rem(20),
+            marginTop: rem(10),
+          }}
+        >
+          Yay! You have seen it all
+        </Typography>
+      }
+      scrollThreshold={"50%"}
+    >
+      <Box sx={{minHeight: "100vh" }}>
         <Grid container spacing={2} sx={{ ...styles.container }}>
           {items &&
             items.map((item: IObject) => (
               <ItemCard key={item.id} item={item} />
             ))}
         </Grid>
-      </InfiniteScroll>
-    </Box>
+      </Box>
+    </InfiniteScroll>
   );
    
   

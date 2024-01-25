@@ -15,14 +15,14 @@ export const ItemList = ({ items, setPage, hasMore, search }: IObject) => {
   const styles = listStyles(theme);
 
   return search === undefined ? (
-    <Box style={{ ...styles.container, minHeight: "100vh" }}>
+    <Box sx={{ ...styles.container, minHeight: "100vh" }}>
       <Grid container spacing={2}>
         {items &&
           items.map((item: IObject) => <ItemCard key={item.id} item={item} />)}
       </Grid>
     </Box>
   ) : (
-    <Box style={{ ...styles.container, minHeight: "100vh" }}>
+    <Box sx={{ ...styles.container, minHeight: "100vh" }}>
       <InfiniteScroll
         dataLength={items.length}
         next={() => {

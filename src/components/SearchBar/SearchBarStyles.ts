@@ -1,3 +1,21 @@
+import { rem } from "../../utils/functions";
+
 export const styles = {
-    width: '100%',
+  container: {
+    width: "100%",
+    borderRadius: rem(20),
+    display: "flex",
+    justifyContent:'center',
+    flexDirection:'column',
+    alignItems: 'center'
+  },
+  container_dark:{
+   backgroundColor:'black'
+  },
+  textfield:{
+    width:'70%'
+  }
+//   input:{borderColor:'black'},
+//   input_dark: {},
+//   input_light: {},
 };

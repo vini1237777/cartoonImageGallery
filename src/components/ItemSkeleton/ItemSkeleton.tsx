@@ -3,14 +3,14 @@ import { Grid, Skeleton, Card, CardContent } from "@mui/material";
 import { IObject } from "../../utils/types";
 import { rem } from "../../utils/functions";
 
-const ItemSkeleton = ({ count = 12,}: IObject) => {
+const ItemSkeleton = ({ count}: IObject) => {
   return (
     <>
       <Grid container spacing={3} sx={{ marginTop: rem(50), padding: 0 }}>
         {Array.from(new Array(count)).map((_, index) => (
-          <Grid item xs={6} sm={4} md={4} lg={3} key={index}>
+          <Grid item xs={6} sm={6} md={6} lg={4}>
             <Card>
-              <Skeleton variant="rectangular" width="100%" height={150} />
+              <Skeleton variant="rectangular" width="100%" height={100} />
               <CardContent>
                 <Skeleton variant="text" />
                 <Skeleton variant="text" />

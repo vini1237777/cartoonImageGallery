@@ -1,106 +1,66 @@
-import { useEffect,  useRef,  useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { fetchImagesUrl } from "../utils/contants";
-import { getPageNumberFromUrl } from "../utils/functions";
 import useAjax from "./useAjax";
-
+import { useDebounceRef } from "./useDebounce";
 
 const useFetchGallery = () => {
-  const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-   const [pageInfo, setPageInfo] = useState({
-     next: null,
-     prev: null,
-   });
-  const [url, setUrl] = useState(null);
-const [search, setSearch] = useState("");
-
+  const [search, setSearch] = useState("");
   const { data, loading, error, setData, setLoading, request, setError } =
     useAjax();
 
-const inputRef : any = useRef();
-
-
+  const debouncedSearch = useDebounceRef(search, 100);
+        
   useEffect(() => {
-    console.log(search, inputRef?.current?.value);
-    if (search) {
-
-      if (page > 2) {
-        const timer = setTimeout(() => {
-          if (search === inputRef?.current?.value) {
-            request(`${fetchImagesUrl}?page=${page}&name=${search}`)
-              .then((res: any) => {
-                const newData = res;
-                setPageInfo((prev) => {
-                  return { next: newData.info.next, prev: newData.info.prev };
+  let fetchData: any;
+        if (search && debouncedSearch) {
+          fetchData = async () => {
+            setLoading(true);
+            const query = debouncedSearch ? `&name=${debouncedSearch}` : "";
+            const url = `${fetchImagesUrl}?page=${page}${query}`;
+            try {
+              const res = await request(url);
+              const newData: any[] = res.results;
+              if (page > 1) {
+                setData((prev) => {
+                  return [...prev, ...newData];
                 });
-                if (page > 2) {
-                  setData((prev: any) => {
-                    return [...prev, ...newData.results];
-                  });
-                } else {
-                  setData(newData.results);
-                }
-                setTotalPages(res?.info?.pages);
+              } else {
+                setData(newData);
+              }
+              setTotalPages(res.info.pages);
+            } catch (err) {
+              setError(true);
+            } finally {
+              setLoading(false);
+            }
+          };
+        } else {
+          fetchData = async () => {
+            setLoading(true);
+            request(fetchImagesUrl)
+              .then((res) => {
+                setData(res.results);
               })
               .catch(() => {
                 setError(true);
               })
               .finally(() => setLoading(false));
-          }
-        }, 600);
-        return () => {
-          clearTimeout(timer);
-        };
-      } else if (page < 3) {
-        setLoading(true);
-        request(`${fetchImagesUrl}?name=${search}`)
-          .then((res: any) => {
-            setData(res.results);
-          })
-          .catch(() => {
-            setError(true);
-          })
-          .finally(() => setLoading(false));
-      }
-     
-    } else {
-      setLoading(true);
-      request(fetchImagesUrl)
-        .then((res: any) => {
-          setData(res.results);
-          const currentPage = getPageNumberFromUrl(res.info.next);
-          setPage(Number(currentPage));
-        })
-        .catch(() => {
-          setError(true);
-        })
-        .finally(() => setLoading(false));
-    }
-  }, [
-    page,
-    search,
-    setData,
-    setError,
-    setLoading,
-    request,
-    url,
-    error,
-    setSearch
-  ]);
+          };
+        }
+
+      fetchData();
+    }, [page, debouncedSearch, request,search, setData, setError, setLoading]);
 
   return {
+    page,
     data,
     loading,
     error,
-    setData,
-    setLoading,
-    page,
     setPage,
+    hasMore: page < totalPages,
     search,
-    hasMore: totalPages > page,
-    setUrl,
-    pageInfo,
-    inputRef,
     setSearch,
   };
 };

@@ -1,29 +1,46 @@
 import React from "react";
-import { Box, TextField, InputAdornment } from "@mui/material";
+import { Box, TextField, InputAdornment, useTheme } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { anyFunction } from "../../utils/types";
 import { styles } from "./SearchBarStyles";
+import { themes } from "../../utils/contants";
 
 interface IProps {
   searchValue: string;
   onSearch: anyFunction;
+  placeholder: string;
 }
 
-export const SearchBar = React.forwardRef(({ searchValue, onSearch }: IProps, ref) => (
-  <Box sx={{ ...styles }}>
+
+export const SearchBar = ({ searchValue, onSearch, placeholder }: IProps) => {
+
+
+    const theme = useTheme();
+    const isDarkMode = theme.palette.mode === themes.dark;
+
+return (
+  <Box
+    sx={{ ...styles.container, ...(isDarkMode ? styles.container_dark : "") }}
+  >
     <TextField
+      hiddenLabel
       fullWidth
-      label="Search"
-      inputRef={ref}
+      sx={{ ...styles.textfield }}
+      label={placeholder}
       value={searchValue}
       onChange={(e) => onSearch(e.target.value)}
       InputProps={{
         endAdornment: (
-          <InputAdornment position="start">
+          <InputAdornment position="end">
             <SearchIcon />
           </InputAdornment>
         ),
       }}
     />
   </Box>
-));
+);
+
+}
+
+
+export default SearchBar;

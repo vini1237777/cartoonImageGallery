@@ -1,12 +1,15 @@
 import {Grid} from "@mui/material";
 import { useState } from "react";
+import { rem } from "../../utils/functions";
 import { IObject } from "../../utils/types";
-import Image from "./Image";
+import Image from "./Image/Image";
 import { styles } from "./itemCardStyles";
 
 const myGridItemStyle = {
   "&.MuiGrid-item": {
-    padding: "10px",
+    paddingLeft: rem(20),
+    paddingRight: rem(20),
+    paddingTop: 0,
   },
 };
 

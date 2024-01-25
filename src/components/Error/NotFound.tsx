@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { rem } from "../../utils/functions";
 import { styles } from "./errorStyles";
 

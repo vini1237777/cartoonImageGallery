@@ -10,14 +10,14 @@ import { rem } from '../../utils/functions';
 
 export const ItemList = ({ items, setPage, hasMore, search }: IObject) => {
   return search === undefined ? (
-    <Box style={{ width: "auto", minHeight: "100vh", marginTop: "4rem" }}>
+    <Box style={{ width: "auto", minHeight: "100vh"}}>
       <Grid container spacing={2} sx={{ ...styles.container }}>
         {items &&
           items.map((item: IObject) => <ItemCard key={item.id} item={item} />)}
       </Grid>
     </Box>
   ) : (
-    <Box style={{ width: "auto", minHeight: "100vh", marginTop: "4rem" }}>
+    <Box style={{ width: "auto", minHeight: "100vh" }}>
       <InfiniteScroll
         dataLength={items.length}
         next={() => {

@@ -1,23 +1,28 @@
 import React from 'react'
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography, useTheme } from '@mui/material';
 import { IObject } from '../../utils/types';
 import { ItemCard } from '../ItemCard/ItemCard';
-import { styles } from './itemListStyles';
+import { styles as listStyles } from './itemListStyles';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ItemSkeleton from '../ItemSkeleton/ItemSkeleton';
 import { rem } from '../../utils/functions';
 
 
 export const ItemList = ({ items, setPage, hasMore, search }: IObject) => {
+
+
+  const theme = useTheme();
+  const styles = listStyles(theme);
+
   return search === undefined ? (
-    <Box style={{ width: "auto", minHeight: "100vh"}}>
-      <Grid container spacing={2} sx={{ ...styles.container }}>
+    <Box style={{ ...styles.container, minHeight: "100vh" }}>
+      <Grid container spacing={2}>
         {items &&
           items.map((item: IObject) => <ItemCard key={item.id} item={item} />)}
       </Grid>
     </Box>
   ) : (
-    <Box style={{ width: "auto", minHeight: "100vh" }}>
+    <Box style={{ ...styles.container, minHeight: "100vh" }}>
       <InfiniteScroll
         dataLength={items.length}
         next={() => {
@@ -39,7 +44,7 @@ export const ItemList = ({ items, setPage, hasMore, search }: IObject) => {
             Yay! You have seen it all
           </Typography>
         }
-        scrollThreshold={'90%'}
+        scrollThreshold={"90%"}
       >
         <Grid container spacing={2} sx={{ ...styles.container }}>
           {items &&

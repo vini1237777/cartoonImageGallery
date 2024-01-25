@@ -1,6 +1,4 @@
-import { themes } from "../../utils/contants";
 import { rem } from "../../utils/functions";
-import { IObject } from "../../utils/types";
 
 export const styles =  {
 

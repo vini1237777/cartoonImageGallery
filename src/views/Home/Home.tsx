@@ -24,7 +24,6 @@ const Home = ({checked,onChange}:IObject) => {
       hasMore,
       search,
       setSearch,
-      page
     } = useFetchGallery();
 
   return (

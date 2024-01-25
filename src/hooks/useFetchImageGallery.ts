@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { fetchImagesUrl } from "../utils/contants";
 import useAjax from "./useAjax";
 import { useDebounceRef } from "./useDebounce";

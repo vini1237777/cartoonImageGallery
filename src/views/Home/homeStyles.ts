@@ -10,7 +10,7 @@ export const styles =(theme : IObject)=> {
      paddingRight: rem(30),
      backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
      color: theme?.palette?.mode === themes.dark ? "black" : "white",
-   },
+    },
    switch: {
      display: "flex",
      justifyContent: "flex-end",

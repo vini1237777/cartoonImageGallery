@@ -77,11 +77,7 @@ const Home = ({ checked, onChange }: IObject) => {
         />
       </Box>
 
-      {error && (
-        <Box sx={{...styles.errorWrapper}}>
-          <NotFoundError />
-        </Box>
-      )}
+        {error && <NotFoundError />}
       {/* Conditional rendering based on loading and error states. */}
       {loading && !data.length ? (
         <ItemSkeleton count={6} />

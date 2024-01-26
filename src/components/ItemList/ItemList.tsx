@@ -27,15 +27,15 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
         overflow: "auto",
         display: "flex",
         flexDirection: "column-reverse",
-        marginTop:rem(30),
-        marginBottom:rem(30)
+        marginTop: rem(30),
+        marginBottom: rem(30),
       }}
     >
       <InfiniteScroll
         dataLength={items.length}
         next={loadMore}
         hasMore={hasMore}
-        height= {600}
+        height={600}
         loader={<ItemSkeleton count={4} />}
         endMessage={
           <Typography
@@ -44,6 +44,8 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
               fontWeight: "bold",
               fontSize: rem(20),
               marginTop: rem(10),
+              color: "black",
+              backgroundColor: "#F8F8FF",
             }}
           >
             Yay! You have seen it all

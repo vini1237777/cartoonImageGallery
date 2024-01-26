@@ -6,13 +6,15 @@ export const styles =(theme : IObject)=> {
 
  return {
    container: {
-     padding: rem(30),
+     paddingLeft: rem(30),
+     paddingRight: rem(30),
      backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
      color: theme?.palette?.mode === themes.dark ? "black" : "white",
+     height:'90vh'
+    },
+   switch: {
+     display: "flex",
+     justifyContent: "flex-end",
    },
-   switch:{
-    display:'flex',
-    justifyContent:"flex-end"
-   }
  };
 };

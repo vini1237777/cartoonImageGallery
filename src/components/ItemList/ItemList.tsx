@@ -22,34 +22,44 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
       </Grid>
     </Box>
   ) : (
-    <InfiniteScroll
-      dataLength={items.length}
-      next={loadMore}
-      hasMore={!!hasMore}
-      loader={<ItemSkeleton count={4} />}
-      endMessage={
-        <Typography
-          style={{
-            textAlign: "center",
-            fontWeight: "bold",
-            fontSize: rem(20),
-            marginTop: rem(10),
-          }}
-        >
-          Yay! You have seen it all
-        </Typography>
-      }
-      scrollThreshold={"50%"}
+    <div
+      style={{
+        height: 600,
+        overflow: "auto",
+        display: "flex",
+        flexDirection: "column-reverse",
+        marginTop:rem(30)
+      }}
     >
-      <Box sx={{minHeight: "100vh" }}>
-        <Grid container spacing={2} sx={{ ...styles.container }}>
-          {items &&
-            items.map((item: IObject) => (
-              <ItemCard key={item.id} item={item} />
-            ))}
-        </Grid>
-      </Box>
-    </InfiniteScroll>
+      <InfiniteScroll
+        dataLength={items.length}
+        next={loadMore}
+        hasMore={!!hasMore}
+        loader={<ItemSkeleton count={4} />}
+        endMessage={
+          <Typography
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: rem(20),
+              marginTop: rem(10),
+            }}
+          >
+            Yay! You have seen it all
+          </Typography>
+        }
+        scrollThreshold={"50%"}
+      >
+        <Box sx={{ minHeight: "100vh" }}>
+          <Grid container spacing={2} sx={{ ...styles.container }}>
+            {items &&
+              items.map((item: IObject) => (
+                <ItemCard key={item.id} item={item} />
+              ))}
+          </Grid>
+        </Box>
+      </InfiniteScroll>
+    </div>
   );
    
   

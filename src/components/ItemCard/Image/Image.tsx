@@ -14,7 +14,7 @@ const Image = ({ item}: IObject) => {
   return (
     <>
       {!loaded && loaded !== false && 
-        <Skeleton variant="rectangular" width="100%" height={200} sx={{
+        <Skeleton variant="rectangular" width="100%" height={300} sx={{
           position:'relative',
           zIndex:2,
         }} />

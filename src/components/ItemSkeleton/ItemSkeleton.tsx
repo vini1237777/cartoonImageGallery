@@ -14,7 +14,7 @@ const ItemSkeleton = ({ count}: IObject) => {
         {Array.from(new Array(count)).map((_, index) => (
           <Grid item xs={6} sm={4} md={4} lg={3} key={index}>
             <Card>
-              <Skeleton variant="rectangular" width="100%" height={200} />
+              <Skeleton variant="rectangular" width="100%" height={300} />
               <CardContent>
                 <Skeleton variant="text" />
                 <Skeleton variant="text" />

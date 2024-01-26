@@ -7,8 +7,6 @@ export const styles = {
     justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
-    // position: "sticky",
-    // top: 85,
     backgroundColor: "white",
     paddingBottom: rem(30),
   },

@@ -75,9 +75,9 @@ const Home = ({ checked, onChange }: IObject) => {
           onSearch={setSearch}
           placeholder={"Start Typing To See More"}
         />
-        {error && <NotFoundError />}
       </Box>
 
+        {error && <NotFoundError />}
       {/* Conditional rendering based on loading and error states. */}
       {loading && !data.length ? (
         <ItemSkeleton count={6} />

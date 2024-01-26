@@ -4,8 +4,6 @@ export const styles = {
   container: {
     backgroundColor: "balck",
     borderRadius: rem(10),
-    position: "sticky",
-    top: 100,
   },
   text: {
     backgroundColor: "#F8F8FF",

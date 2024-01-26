@@ -32,7 +32,7 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
             textAlign: "center",
             fontWeight: "bold",
             fontSize: rem(20),
-            marginTop: rem(10),
+            marginTop: rem(80),
             color: "black",
             backgroundColor: "#F8F8FF",
             paddingBottom: rem(10),

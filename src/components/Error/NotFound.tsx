@@ -9,6 +9,7 @@ const NotFoundError = () => {
     <Box sx={{ ...styles.container }}>
       <Typography
         style={{ ...styles.text, marginTop: rem(10), color: "black" }}
+        align="center"
       >
         Please try again! No result Found
       </Typography>

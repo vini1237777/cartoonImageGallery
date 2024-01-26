@@ -26,7 +26,8 @@ const Home = ({checked,onChange}:IObject) => {
       setSearch,
       search,
       getCharacters,
-      next
+      next,
+      prev
     } = useGetCharacters();
 
   const { debouncedValue, previousVal } = useDebounceRef(search, 100);
@@ -74,7 +75,7 @@ const Home = ({checked,onChange}:IObject) => {
           <ItemList
             items={data}
             loadMore={loadMore}
-            hasMore={!!next}
+            hasMore={!!next && !!prev}
             search={search}
           />
         )

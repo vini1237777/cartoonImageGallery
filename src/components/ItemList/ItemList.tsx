@@ -11,6 +11,9 @@ import { rem } from '../../utils/functions';
 export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
 
 
+
+  console.log({hasMore})
+
   const theme = useTheme();
   const styles = listStyles(theme);
 
@@ -28,13 +31,15 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
         overflow: "auto",
         display: "flex",
         flexDirection: "column-reverse",
-        marginTop:rem(30)
+        marginTop:rem(30),
+        marginBottom:rem(30)
       }}
     >
       <InfiniteScroll
         dataLength={items.length}
         next={loadMore}
-        hasMore={!!hasMore}
+        hasMore={hasMore}
+        height= {600}
         loader={<ItemSkeleton count={4} />}
         endMessage={
           <Typography

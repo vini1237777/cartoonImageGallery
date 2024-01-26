@@ -7,6 +7,7 @@ import useSearchAndPagination from "./useSearchAndPagination";
 export const useGetCharacters = () => {
 
     const [next, setNext] = useState('');
+    const [prev, setPrev] = useState('');
 
   const { data, loading, error, setError, setLoading, setData } = useAjax();
 
@@ -49,6 +50,7 @@ export const useGetCharacters = () => {
               typeof onSuccess === "function" && onSuccess();
               if (res?.info?.next) {
                 setNext(res?.info?.next);
+                setNext(res?.info?.prev);
               }
             }
           })
@@ -75,7 +77,8 @@ export const useGetCharacters = () => {
     setSearch,
     search,
     getCharacters,
-    next
+    next,
+    prev
   };
 
 }

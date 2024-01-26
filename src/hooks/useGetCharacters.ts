@@ -50,7 +50,7 @@ export const useGetCharacters = () => {
               typeof onSuccess === "function" && onSuccess();
               if (res?.info?.next) {
                 setNext(res?.info?.next);
-                setNext(res?.info?.prev);
+                setPrev(res?.info?.prev);
               }
             }
           })

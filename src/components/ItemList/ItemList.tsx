@@ -26,7 +26,7 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
         height: 600,
         display: "flex",
         flexDirection: "column-reverse",
-        marginTop: rem(30),
+        marginTop: rem(20),
         marginBottom: rem(30),
       }}
     >
@@ -53,7 +53,7 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
         }
         scrollThreshold={"50%"}
       >
-        <Box sx={{ minHeight: "100vh" }}>
+        <Box>
           <Grid container spacing={2} sx={{ ...styles.container }}>
             {items &&
               items.map((item: IObject) => (

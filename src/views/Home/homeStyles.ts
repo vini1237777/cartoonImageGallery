@@ -19,7 +19,12 @@ export const styles =(theme : IObject)=> {
      backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
      position: "sticky",
      top: 0,
-     zIndex:3
+     zIndex: 3,
+   },
+   errorWrapper: {
+     backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
+     height:'75vh',
+     overflow:'hidden',
    },
  };
 };

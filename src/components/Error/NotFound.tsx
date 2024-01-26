@@ -1,9 +1,12 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { rem } from "../../utils/functions";
-import { styles } from "./errorStyles";
+import { styles as errorStyles } from "./errorStyles";
 
 const NotFoundError = () => {
+
+  const theme =useTheme();
+  const styles= errorStyles(theme);
 
   return (
     <Box sx={{ ...styles.container }}>

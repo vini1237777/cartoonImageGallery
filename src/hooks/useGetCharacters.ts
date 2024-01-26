@@ -61,8 +61,8 @@ export const useGetCharacters = () => {
           setNext("");
           typeof onError === "function" && onError();
         });
-      // eslint-disable-next-line
     },
+    // eslint-disable-next-line
     []
   );
 

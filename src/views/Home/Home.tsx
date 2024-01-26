@@ -4,18 +4,19 @@ import { SearchBar } from "../../components/SearchBar/SearchBar";
 import "react-toastify/dist/ReactToastify.css";
 import ItemSkeleton from "../../components/ItemSkeleton/ItemSkeleton";
 import { Box, Switch, useTheme } from "@mui/material";
-import { styles as homeStyle} from "./homeStyles";
+import { styles as homeStyle } from "./homeStyles";
 import NotFoundError from "../../components/Error/NotFound";
 import Heading from "../../components/Heading/Heading";
 import { IObject } from "../../utils/types";
 import { useGetCharacters } from "../../hooks/useGetCharacters";
 import { useDebounceRef } from "../../hooks/useDebounce";
 
-const Home = ({checked,onChange}:IObject) => {
+const Home = ({ checked, onChange }: IObject) => {
+  // Using the Material-UI theme for styling.
   const theme = useTheme();
   const styles = homeStyle(theme);
 
-
+  // Extracting necessary functions and states from our custom hook.
   const {
     data,
     loading,
@@ -25,23 +26,27 @@ const Home = ({checked,onChange}:IObject) => {
     getCharacters,
     next,
     setData,
-    setNext
+    setNext,
   } = useGetCharacters();
 
+  // Custom debouncing for handling rapid search inputs.
   const { debouncedValue, previousVal } = useDebounceRef(search, 500);
 
+  // Function to load more items.
   const loadMore = () => {
     getCharacters({
-      url:next,
-      onSuccess: () =>{}
+      url: next,
+      onSuccess: () => {},
     });
   };
- 
+
+  // Initial data fetching on component mount.
   useEffect(() => {
     getCharacters();
     // eslint-disable-next-line
-  }, []); 
+  }, []);
 
+  // Effect for handling search functionality.
   useEffect(() => {
     if (debouncedValue || (!debouncedValue && previousVal.current)) {
       getCharacters({
@@ -56,10 +61,12 @@ const Home = ({checked,onChange}:IObject) => {
     } // eslint-disable-next-line
   }, [debouncedValue, getCharacters, previousVal]);
 
+  // Rendering the Home component UI.
   return (
     <Box sx={{ ...styles.container }}>
       <Box sx={{ ...styles.banner }}>
         <Box sx={{ ...styles.switch }}>
+          {/* Button for changing theme of the component (light and dark) */}
           <Switch checked={checked} onChange={onChange} />
         </Box>
         <Heading />
@@ -68,8 +75,10 @@ const Home = ({checked,onChange}:IObject) => {
           onSearch={setSearch}
           placeholder={"Start Typing To See More"}
         />
+        {error && <NotFoundError />}
       </Box>
 
+      {/* Conditional rendering based on loading and error states. */}
       {loading && !data.length ? (
         <ItemSkeleton count={6} />
       ) : (
@@ -82,7 +91,6 @@ const Home = ({checked,onChange}:IObject) => {
           />
         )
       )}
-      {error && <NotFoundError />}
     </Box>
   );
 };

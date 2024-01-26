@@ -41,7 +41,6 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
           Yay! You have seen it all
         </Typography>
       }
-      scrollThreshold={"50%"}
     >
       <Box>
         <Grid container spacing={2} sx={{ ...styles.container }}>

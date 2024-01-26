@@ -10,10 +10,6 @@ import { rem } from '../../utils/functions';
 
 export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
 
-
-
-  console.log({hasMore})
-
   const theme = useTheme();
   const styles = listStyles(theme);
 

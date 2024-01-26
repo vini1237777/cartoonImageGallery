@@ -10,7 +10,7 @@ export const styles = {
     alignItems: 'center',
   },
   container_dark:{
-   backgroundColor:'black'
+   backgroundColor:'#121212'
   },
   textfield:{
     width:'90%'

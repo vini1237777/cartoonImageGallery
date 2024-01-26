@@ -9,9 +9,13 @@ return {
     marginTop: rem(10),
   },
   text: {
-    fontSize: "40px",
     fontWeight: "bold",
     color: theme?.palette?.mode === themes.dark ? "white" : "black",
+    fontSize: {
+      xs: "20px", 
+      sm: "35px", 
+      md: "40px", 
+    },
   },
 };
 }

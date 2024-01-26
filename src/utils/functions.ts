@@ -6,16 +6,20 @@ export function rem(px: number, rootFontSize = 16) {
   return `${px / rootFontSize}rem`;
 }
 
- export const getCharacterUrl = ({
-   page,
-   queryString,
- }: {
-   page?: number;
-   queryString?: string;
- }  = {
-   page :1,
-   queryString:'',
- }  ) => `${fetchImagesUrl}?page=${page}&name=${queryString}`;
+ export const getCharacterUrl = (
+   {
+     page,
+     queryString,
+     url,
+   }: {
+     page?: number;
+     queryString?: string;
+     url?:string;
+   } = {
+     page: 1,
+     queryString: "",
+   }
+ ) => url || `${fetchImagesUrl}?page=${page}&name=${queryString}`;
 
 export const request = async (url: string) => {
   try {

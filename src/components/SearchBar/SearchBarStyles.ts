@@ -7,7 +7,7 @@ export const styles = {
     display: "flex",
     justifyContent:'center',
     flexDirection:'column',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   container_dark:{
    backgroundColor:'black'
@@ -15,7 +15,4 @@ export const styles = {
   textfield:{
     width:'90%'
   }
-//   input:{borderColor:'black'},
-//   input_dark: {},
-//   input_light: {},
 };

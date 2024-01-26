@@ -10,8 +10,9 @@ export const styles =(theme : IObject)=> {
      paddingRight: rem(30),
      backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
      color: theme?.palette?.mode === themes.dark ? "black" : "white",
-     height:'90vh'
-    },
+     height: "100vh",
+    overflow: "hidden"
+   },
    switch: {
      display: "flex",
      justifyContent: "flex-end",

@@ -12,50 +12,49 @@ import { useGetCharacters } from "../../hooks/useGetCharacters";
 import { useDebounceRef } from "../../hooks/useDebounce";
 
 const Home = ({checked,onChange}:IObject) => {
-
   const theme = useTheme();
-  const styles= homeStyle(theme);
-
-  
-    const {
-      data,
-      loading,
-      error,
-      page,
-      setPage,
-      setSearch,
-      search,
-      getCharacters,
-      next,
-      prev
-    } = useGetCharacters();
-
-  const { debouncedValue, previousVal } = useDebounceRef(search, 100);
+  const styles = homeStyle(theme);
 
 
-    const loadMore =()=> {
+  const {
+    data,
+    loading,
+    error,
+    setSearch,
+    search,
+    getCharacters,
+    next,
+    setData,
+    setNext
+  } = useGetCharacters();
+
+  const { debouncedValue, previousVal } = useDebounceRef(search, 500);
+
+  const loadMore = () => {
+    getCharacters({
+      url:next,
+      onSuccess: () =>{}
+    });
+  };
+ 
+  useEffect(() => {
+    getCharacters();
+    // eslint-disable-next-line
+  }, []); 
+
+  useEffect(() => {
+    if (debouncedValue || (!debouncedValue && previousVal.current)) {
       getCharacters({
-        pageNum:page + 1,
-        onSuccess:()=>setPage((prevPage: number) => {
-      return prevPage + 1;
-    })
-      })
-      };
-
-    useEffect(() => {
-      getCharacters();
-    }, [getCharacters]);
-  
-       useEffect(() => {
-         if (debouncedValue || (!debouncedValue && previousVal)) {
-           getCharacters({
-             pageNum: 1,
-             queryString: debouncedValue,
-             ignorePreviousData: true,
-           });
-         }
-       }, [debouncedValue, previousVal, getCharacters]);
-  
+        pageNum: 1,
+        queryString: debouncedValue,
+        ignorePreviousData: true,
+        onInitial: () => {
+          setData([]);
+          setNext("");
+        },
+      });
+    } // eslint-disable-next-line
+  }, [debouncedValue, getCharacters, previousVal]);
 
   return (
     <Box sx={{ ...styles.container }}>
@@ -75,7 +74,7 @@ const Home = ({checked,onChange}:IObject) => {
           <ItemList
             items={data}
             loadMore={loadMore}
-            hasMore={!!next && !!prev}
+            hasMore={!!next}
             search={search}
           />
         )

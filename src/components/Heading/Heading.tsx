@@ -9,7 +9,7 @@ const Heading = () => {
 
   return (
     <Box sx={{ ...styles.container }}>
-      <Typography sx={{ ...styles.text }} align="center">
+      <Typography sx={{ ...styles.text }} align="center" >
         {description}
       </Typography>
     </Box>

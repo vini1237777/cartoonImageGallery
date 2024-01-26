@@ -22,5 +22,5 @@ export const useDebounceRef = (value: string, delay: number) => {
      currentValRef.current = value;
    }, [value]);
 
-  return { debouncedValue: debouncedValue, previousVal: previousVal.current };
+  return { debouncedValue: debouncedValue, previousVal: previousVal };
 };

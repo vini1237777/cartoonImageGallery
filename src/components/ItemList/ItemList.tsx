@@ -21,10 +21,9 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
       </Grid>
     </Box>
   ) : (
-    <div
-      style={{
+    <Box
+      sx={{
         height: 600,
-        overflow: "auto",
         display: "flex",
         flexDirection: "column-reverse",
         marginTop: rem(30),
@@ -39,13 +38,14 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
         loader={<ItemSkeleton count={4} />}
         endMessage={
           <Typography
-            style={{
+            sx={{
               textAlign: "center",
               fontWeight: "bold",
               fontSize: rem(20),
               marginTop: rem(10),
               color: "black",
               backgroundColor: "#F8F8FF",
+              paddingBottom: rem(10),
             }}
           >
             Yay! You have seen it all
@@ -62,7 +62,7 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
           </Grid>
         </Box>
       </InfiniteScroll>
-    </div>
+    </Box>
   );
    
   

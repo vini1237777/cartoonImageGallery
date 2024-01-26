@@ -1,67 +1,66 @@
+
 import { useCallback, useState } from "react";
 import { getCharacterUrl, request } from "../utils/functions";
 import { anyFunction } from "../utils/types";
 import useAjax from "./useAjax";
-import useSearchAndPagination from "./useSearchAndPagination";
 
 export const useGetCharacters = () => {
 
     const [next, setNext] = useState('');
-    const [prev, setPrev] = useState('');
 
-  const { data, loading, error, setError, setLoading, setData } = useAjax();
-
-  const {
-    page,
-    setPage,
-    setSearch,
-    search,
-  } = useSearchAndPagination();
-
+    const [search, setSearch] = useState('');
+    
+    const { data, loading, error, setError, setLoading, setData } = useAjax();
+    
+    
     const getCharacters = useCallback(
       ({
         pageNum,
+        url,
         queryString,
         onSuccess,
         onError,
+        onInitial,
         ignorePreviousData,
       }: {
         queryString?: string;
+        url?: string;
         pageNum?: number;
         onSuccess?: anyFunction | null;
         onError?: anyFunction | null;
+        onInitial?: anyFunction | null;
         ignorePreviousData?: boolean;
       } = {}) => {
         setLoading(true);
+        typeof onInitial === "function" && onInitial();
         request(
           getCharacterUrl({
+            url,
             page: pageNum || 1,
             queryString: queryString || "",
           })
         )
           .then((res) => {
             if (res?.results?.length) {
-                setData((prev) => {
-                  const previousData = ignorePreviousData ? []: prev;
+              setData((prev) => {
+                const previousData = ignorePreviousData ? [] : prev;
                 return [...previousData, ...res.results];
               });
               setLoading(false);
               setError(false);
               typeof onSuccess === "function" && onSuccess();
-              if (res?.info?.next) {
-                setNext(res?.info?.next);
-                setPrev(res?.info?.prev);
-              }
+              setNext(res?.info?.next);
             }
           })
           .catch((err) => {
             setData([]);
             setLoading(false);
             setError(true);
+            setNext("");
             typeof onError === "function" && onError();
           });
-      },
-      [setData, setError,setLoading]
+        // eslint-disable-next-line
+      },[]
     );
 
 
@@ -72,13 +71,11 @@ export const useGetCharacters = () => {
     setError,
     setLoading,
     setData,
-    page,
-    setPage,
     setSearch,
     search,
     getCharacters,
     next,
-    prev
+    setNext
   };
 
 }

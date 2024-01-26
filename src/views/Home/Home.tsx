@@ -58,15 +58,18 @@ const Home = ({checked,onChange}:IObject) => {
 
   return (
     <Box sx={{ ...styles.container }}>
-      <Box sx={{ ...styles.switch }}>
-        <Switch checked={checked} onChange={onChange} />
+      <Box sx={{ ...styles.banner }}>
+        <Box sx={{ ...styles.switch }}>
+          <Switch checked={checked} onChange={onChange} />
+        </Box>
+        <Heading />
+        <SearchBar
+          searchValue={search}
+          onSearch={setSearch}
+          placeholder={"Start Typing To See More"}
+        />
       </Box>
-      <Heading />
-      <SearchBar
-        searchValue={search}
-        onSearch={setSearch}
-        placeholder={"Start Typing To See More"}
-      />
+
       {loading && !data.length ? (
         <ItemSkeleton count={6} />
       ) : (

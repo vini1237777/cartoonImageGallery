@@ -25,7 +25,7 @@ return (
     <TextField
       hiddenLabel
       fullWidth
-      sx={{ ...styles.textfield }}
+      sx={{ ...styles.textfield, ...(isDarkMode ? styles.textfield_dark : "") }}
       label={placeholder}
       value={searchValue}
       onChange={(e) => onSearch(e.target.value)}

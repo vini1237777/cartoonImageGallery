@@ -9,7 +9,7 @@ const ItemSkeleton = ({ count}: IObject) => {
       <Grid
         container
         spacing={3}
-        sx={{ marginTop: rem(10), padding: 0, height: "30%" }}
+        sx={{ marginTop: rem(10), padding: 0, height: "30%", position:'relative' }}
       >
         {Array.from(new Array(count)).map((_, index) => (
           <Grid item xs={6} sm={4} md={4} lg={3} key={index}>

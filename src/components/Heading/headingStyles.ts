@@ -5,16 +5,16 @@ import { IObject } from "../../utils/types";
 export const styles =(theme : IObject)=> {
 return {
   container: {
-    marginBottom: rem(20),
-    marginTop: rem(10),
+    paddingBottom: "20px",
+    paddingTop: rem(20),
   },
   text: {
     fontWeight: "bold",
     color: theme?.palette?.mode === themes.dark ? "white" : "black",
     fontSize: {
-      xs: "20px", 
-      sm: "35px", 
-      md: "40px", 
+      xs: "20px",
+      sm: "35px",
+      md: "40px",
     },
   },
 };

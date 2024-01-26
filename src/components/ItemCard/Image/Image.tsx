@@ -13,21 +13,29 @@ const Image = ({ item}: IObject) => {
 
   return (
     <>
-      {!loaded && loaded !== false && 
-        <Skeleton variant="rectangular" width="100%" height={130} sx={{
-          position:'relative',
-          zIndex:2,
-        }} />
-       } 
-        <img
-          src={item.image}
-          alt={item.name}
-          style={{ ...styles.responsiveImage }}
-          loading="lazy"
-          onLoad={() => setLoaded(true)}
-          onError={() => setLoaded(false)}
+      {!loaded && loaded !== false && (
+        <Skeleton
+          variant="rectangular"
+          width="100%"
+          sx={{
+            position: "relative",
+            zIndex: 2,
+            height: {
+              xs: 130,
+              sm: 150,
+              md: 300,
+            },
+          }}
         />
-    
+      )}
+      <img
+        src={item.image}
+        alt={item.name}
+        style={{ ...styles.responsiveImage }}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        onError={() => setLoaded(false)}
+      />
     </>
   );
 };

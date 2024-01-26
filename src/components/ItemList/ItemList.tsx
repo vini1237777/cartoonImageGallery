@@ -21,20 +21,11 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
       </Grid>
     </Box>
   ) : (
-    <Box
-      sx={{
-        height: 600,
-        display: "flex",
-        flexDirection: "column-reverse",
-        marginTop: rem(20),
-        marginBottom: rem(30),
-      }}
-    >
       <InfiniteScroll
         dataLength={items.length}
         next={loadMore}
         hasMore={hasMore}
-        height={600}
+        // height={600}
         loader={<ItemSkeleton count={4} />}
         endMessage={
           <Typography
@@ -62,7 +53,6 @@ export const ItemList = ({ items, loadMore, hasMore, search }: IObject) => {
           </Grid>
         </Box>
       </InfiniteScroll>
-    </Box>
   );
    
   

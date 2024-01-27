@@ -5,8 +5,8 @@ export const styles =(theme : IObject)=> {
 
  return {
    container: {
-     paddingLeft: rem(30),
-     paddingRight: rem(30),
+     paddingLeft: rem(20),
+     paddingRight: rem(20),
      backgroundColor: getThemeBackgroundColor(theme),
      color: getThemeTextColor(theme)
    },

@@ -1,11 +1,8 @@
-import { themes } from "../../utils/contants";
-import { rem } from "../../utils/functions";
+import { getThemeTextColor, rem } from "../../utils/functions";
 import { IObject } from "../../utils/types";
 
 export const styles =(theme : IObject)=> {
   
-  const {palette: {customColors, mode}} = theme || {};
-
   return {
     container: {
       paddingBottom: "20px",
@@ -13,7 +10,7 @@ export const styles =(theme : IObject)=> {
     },
     text: {
       fontWeight: "bold",
-      color: mode === themes.dark ? customColors?.red : customColors?.black,
+      color: getThemeTextColor(theme),
       fontSize: {
         xs: "20px",
         sm: "35px",

@@ -15,6 +15,5 @@ export const styles =  {
       paddingLeft: rem(13),
       paddingRight: rem(13),
       paddingTop: rem(10),
-      
     },
 };

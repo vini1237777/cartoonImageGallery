@@ -1,21 +1,18 @@
-import { getThemeTextColor, rem } from "../../utils/functions";
+import { getThemeTextColor} from "../../utils/functions";
 import { IObject } from "../../utils/types";
 
 export const styles =(theme : IObject)=> {
   
   return {
-    container: {
-      paddingBottom: "20px",
-      paddingTop: rem(20),
-    },
     text: {
       fontWeight: "bold",
       color: getThemeTextColor(theme),
       fontSize: {
-        xs: "20px",
-        sm: "35px",
-        md: "40px",
+        xs: "13px",
+        sm: "22px",
+        md: "22px",
       },
+      fontFamily: "'Comic Neue', cursive",
     },
   };
 }

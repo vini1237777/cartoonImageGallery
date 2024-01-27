@@ -28,7 +28,7 @@ export const ItemList = ({ items, loadMore, hasMore }: IObject) => {
           scrollThreshold={"60%"}
         >
           <Box sx={{ ...styles.wrapper }}>
-            <Grid container  sx={{ ...styles.container }}>
+            <Grid container spacing={3} sx={{ ...styles.container }}>
               {items &&
                 items.map((item: IObject) => (
                   <ItemCard key={item.id} item={item} />

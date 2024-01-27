@@ -8,17 +8,13 @@ export const styles =(theme : IObject)=> {
      paddingLeft: rem(20),
      paddingRight: rem(20),
      backgroundColor: getThemeBackgroundColor(theme),
-     color: getThemeTextColor(theme)
+     color: getThemeTextColor(theme),
+     paddingTop: rem(20)
    },
+
    switch: {
      display: "flex",
      justifyContent: "flex-end",
-   },
-   banner: {
-     backgroundColor: getThemeBackgroundColor(theme),
-     position: "sticky",
-     top: 0,
-     zIndex: 3,
    },
  };
 };

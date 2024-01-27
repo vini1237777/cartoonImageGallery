@@ -48,7 +48,7 @@ const App = () => {
   return (
     <ThemeProvider theme={themeMode === "light" ? lightTheme : darkTheme}>
         {/* Passing theme related props to the Home component */}
-        <Home checked={themeMode === "dark"} onChange={handleThemeChange} />
+        <Home isDarkMode={themeMode === "dark"} onThemeChange={handleThemeChange} />
     </ThemeProvider>
   );
 };

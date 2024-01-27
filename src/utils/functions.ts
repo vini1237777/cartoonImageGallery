@@ -36,7 +36,8 @@ export const request = async (url: string) => {
 export const getThemeTextColor = (theme: IObject) =>theme?.palette?.mode === themes.dark ? color.white : color.black;
 
 // function to change the background color based on the theme
-export const getThemeBackgroundColor = (theme : IObject) => theme?.palette?.mode === themes.dark ? color.black : color.white;
+export const getThemeBackgroundColor = (theme: IObject) =>
+  theme?.palette?.mode === themes.dark ? color.darkGray : color.white;
 
 
 

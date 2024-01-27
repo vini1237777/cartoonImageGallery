@@ -4,13 +4,6 @@ import { IObject } from "../../utils/types";
 import Image from "./Image/Image";
 import { styles } from "./itemCardStyles";
 
-export const myGridItemStyle = {
-  "&.MuiGrid-item": {
-    paddingLeft: rem(10),
-    paddingRight: rem(10),
-  },
-};
-
 export const ItemCard = ({ item }: IObject) => {
   return (
     <Grid
@@ -19,11 +12,11 @@ export const ItemCard = ({ item }: IObject) => {
       sm={4}
       md={4}
       lg={3}
-      sx={{ ...myGridItemStyle, ...styles.container }}
+      sx={{ ...styles.container }}
     >
       <Card
         sx={{
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
+          boxShadow: "0px 4px 8px rgba(0, 0, 0, 1)",
           paddingBottom: rem(10),
           width: "100%",
         }}

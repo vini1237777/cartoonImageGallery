@@ -10,8 +10,9 @@ import Heading from "../../components/Heading/Heading";
 import { IObject } from "../../utils/types";
 import { useGetCharacters } from "../../hooks/useGetCharacters";
 import { useDebounceRef } from "../../hooks/useDebounce";
+import SearchAppBar from "../../AppBar/AppBar";
 
-const Home = ({ checked, onChange }: IObject) => {
+const Home = ({ isDarkMode, onThemeChange }: IObject) => {
   // using the Material-UI theme for styling.
   const theme = useTheme();
   const styles = homeStyle(theme);
@@ -63,20 +64,15 @@ const Home = ({ checked, onChange }: IObject) => {
 
   return (
     <Box sx={{ ...styles.container }}>
-      <Box sx={{ ...styles.banner }}>
-      <Box sx={{ ...styles.switch }}>
-      {/* button for changing theme of the component (light and dark) */}
-      <Switch checked={checked} onChange={onChange} />
-      </Box>
-        <Heading />
-        <SearchBar
-          searchValue={search}
-          onSearch={setSearch}
-          placeholder={"Search For Character Name"}
-        />
-      </Box> 
+      <SearchAppBar isDarkMode={isDarkMode} onThemeChange={onThemeChange} />
+      <SearchBar
+        searchValue={search}
+        onSearch={setSearch}
+        placeholder={"Search For Character Name"}
+      />
 
       {error && !loading && <NotFoundError />}
+
       {loading && !data.length ? (
         <ItemSkeleton count={10} />
       ) : (

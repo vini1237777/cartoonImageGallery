@@ -8,7 +8,7 @@ const Heading = () => {
     const styles = headingStyles(theme);
 
   return (
-    <Box sx={{ ...styles.container }}>
+    <Box>
       <Typography sx={{ ...styles.text }} align="center" >
         {description}
       </Typography>

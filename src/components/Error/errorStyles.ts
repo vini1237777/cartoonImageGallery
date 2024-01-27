@@ -7,19 +7,15 @@ export const styles =(theme:IObject)=> {
 
   return {
     container: {
-      borderRadius: '50%',
-      padding: rem(10),
-      position: "sticky",
-      top: 150,
-      width:'100%',
-      display: 'flex',
-      justifyContent: 'center'
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      marginTop: rem(75),
     },
     text: {
       backgroundColor: customColors?.offWhite,
       borderRadius: rem(10),
       padding: rem(10),
-      marginTop: rem(10),
       color: customColors?.black,
     },
   };

@@ -8,6 +8,7 @@ export const styles = (theme: IObject) => {
       marginBottom: rem(15),
       width: { xs: "89%", sm: "89%", md: "87%" },
       backgroundColor: getThemeBackgroundColor(theme),
+      marginTop: rem(70),
     },
     wrapper: {
       display: "flex",

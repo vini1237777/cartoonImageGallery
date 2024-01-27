@@ -1,5 +1,5 @@
 import { color } from "../../utils/colors";
-import {  rem } from "../../utils/functions";
+import { rem } from "../../utils/functions";
 
 export const styles = {
   container: {
@@ -9,10 +9,14 @@ export const styles = {
     flexDirection: "column",
     alignItems: "center",
     backgroundColor: color.white,
-    paddingBottom: rem(30),
+    paddingBottom: rem(10),
+    position: "sticky",
+    top: 55,
+    zIndex: 3,
+    paddingTop: rem(20),
   },
   container_dark: {
-    backgroundColor:color.black,
+    backgroundColor: color.darkGray,
   },
   textfield: {
     width: "86%",
@@ -20,6 +24,6 @@ export const styles = {
     backgroundColor: color?.offWhite,
   },
   textfield_dark: {
-    backgroundColor: color?.slateBlack,
+    backgroundColor: color.darkGray,
   },
 };

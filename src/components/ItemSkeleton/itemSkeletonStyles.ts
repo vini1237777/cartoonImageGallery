@@ -8,7 +8,6 @@ export const styles = (theme: IObject) => {
      marginTop: rem(10), 
      padding: 0, 
      height: "30%", 
-     position:'relative',
      backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
     },
   };

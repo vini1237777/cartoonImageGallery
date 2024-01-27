@@ -4,7 +4,8 @@ export const styles =  {
 
     container: {
       borderRadius: "10%",
-      marginBottom: rem(15)
+      marginBottom: rem(15),
+      width:'90%'
     },
 
     text: {

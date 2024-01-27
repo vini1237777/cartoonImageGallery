@@ -11,6 +11,8 @@ export const styles = (theme:IObject)=> {
       width: "90%",
       backgroundColor: getThemeBackgroundColor(theme),
       paddingBottom: rem(80),
+      paddingLeft: rem(20),
+      paddingRight: rem(20),
     },
     wrapper: {
       display: "flex",
@@ -25,6 +27,13 @@ export const styles = (theme:IObject)=> {
       color: customColors?.black,
       backgroundColor: customColors?.offWhite,
       paddingBottom: rem(10),
+      paddingTop: rem(10),
+      width: "70%",
+      borderRadius: rem(10),
+    },
+    textWrapper: {
+      display: "flex",
+      justifyContent: "center",
     },
   };
 };

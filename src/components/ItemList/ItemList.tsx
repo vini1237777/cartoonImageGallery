@@ -11,29 +11,33 @@ export const ItemList = ({ items, loadMore, hasMore }: IObject) => {
   const theme = useTheme();
   const styles = listStyles(theme);
  
-    return items?.length && <InfiniteScroll
-      dataLength={items.length}
-      next={loadMore}
-      hasMore={hasMore}
-      loader={<ItemSkeleton count={4} />}
-      endMessage={
-        <Typography
-          sx={{...styles.text}}
+    return (
+      items?.length && (
+        <InfiniteScroll
+          dataLength={items.length}
+          next={loadMore}
+          hasMore={hasMore}
+          loader={<ItemSkeleton count={4} />}
+          endMessage={
+            <Box sx={{ ...styles.textWrapper }}>
+              <Typography sx={{ ...styles.text }}>
+                Yay! You have seen it all
+              </Typography>
+            </Box>
+          }
+          scrollThreshold={"60%"}
         >
-          Yay! You have seen it all
-        </Typography>
-      }
-      scrollThreshold={'60%'}
-    >
-      <Box sx={{...styles.wrapper}}>
-        <Grid container sx={{ ...styles.container }}>
-          {items &&
-            items.map((item: IObject) => (
-              <ItemCard key={item.id} item={item} />
-            ))}
-        </Grid>
-      </Box>
-    </InfiniteScroll>
+          <Box sx={{ ...styles.wrapper }}>
+            <Grid container sx={{ ...styles.container }}>
+              {items &&
+                items.map((item: IObject) => (
+                  <ItemCard key={item.id} item={item} />
+                ))}
+            </Grid>
+          </Box>
+        </InfiniteScroll>
+      )
+    );
   // );
 };
 

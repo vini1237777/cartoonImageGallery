@@ -21,7 +21,6 @@ export const styles =(theme:IObject)=> {
       padding: rem(10),
       marginTop: rem(10),
       color: customColors?.black,
-      minWidth: "300px",
       maxWidth: "80%",
     },
   };

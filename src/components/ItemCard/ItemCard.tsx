@@ -4,7 +4,7 @@ import { IObject } from "../../utils/types";
 import Image from "./Image/Image";
 import { styles } from "./itemCardStyles";
 
-const myGridItemStyle = {
+export const myGridItemStyle = {
   "&.MuiGrid-item": {
     paddingLeft: rem(10),
     paddingRight: rem(10),

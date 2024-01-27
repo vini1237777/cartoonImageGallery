@@ -76,7 +76,7 @@ const Home = ({ checked, onChange }: IObject) => {
         />
       </Box> 
 
-      {error && <NotFoundError />}
+      {error && !loading && <NotFoundError />}
       {loading && !data.length ? (
         <ItemSkeleton count={10} />
       ) : (

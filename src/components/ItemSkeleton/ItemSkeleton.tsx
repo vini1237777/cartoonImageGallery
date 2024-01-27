@@ -2,31 +2,47 @@ import React from "react";
 import { Grid, Skeleton, Card, CardContent, useTheme, Box } from "@mui/material";
 import { IObject } from "../../utils/types";
 import {styles as itemSkeletonStyles} from './itemSkeletonStyles';
+import { myGridItemStyle } from "../ItemCard/ItemCard";
 
 const ItemSkeleton = ({ count}: IObject) => {
     const theme = useTheme();
     const styles = itemSkeletonStyles(theme);
   return (
-    <Box sx={{...styles.wrapper}}>
+    <Box sx={{ ...styles.wrapper }}>
       <Grid container spacing={1} sx={{ ...styles.container }}>
         {Array.from(new Array(count)).map((_, index) => (
-          <Grid item xs={6} sm={4} md={4} lg={3} key={index}>
+          <Grid
+            item
+            xs={6}
+            sm={4}
+            md={4}
+            lg={3}
+            key={index}
+            sx={{ ...myGridItemStyle }}
+          >
             <Card>
               <Skeleton
                 variant="rectangular"
                 width="100%"
                 sx={{
                   height: {
-                    xs: 40,
+                    xs: 130,
                     sm: 150,
-                    md: 200,
+                    md: 310,
                   },
                 }}
               />
               <CardContent>
-                <Skeleton variant="text" />
-                <Skeleton variant="text" />
-                <Skeleton variant="text" width="60%" />
+                <Skeleton variant="text"  />
+                <Skeleton
+                  variant="text"
+                  width="60%"
+                  sx={{
+                    height: {
+                      md: 20,
+                    },
+                  }}
+                />
               </CardContent>
             </Card>
           </Grid>

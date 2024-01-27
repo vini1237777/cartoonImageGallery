@@ -4,9 +4,10 @@ import { IObject } from "../../utils/types";
 export const styles = (theme: IObject) => {
   return {
     container: {
-      marginTop: rem(10),
+      borderRadius: "10%",
+      marginBottom: rem(15),
+      width:'90%',
       backgroundColor: getThemeBackgroundColor(theme),
-      width: "95%",
     },
     wrapper: {
       display: "flex",

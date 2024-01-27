@@ -6,9 +6,8 @@ import { styles } from "./itemCardStyles";
 
 const myGridItemStyle = {
   "&.MuiGrid-item": {
-    paddingLeft: rem(5),
-    paddingRight: rem(5),
-    // paddingTop: 0,
+    paddingLeft: rem(10),
+    paddingRight: rem(10),
   },
 };
 

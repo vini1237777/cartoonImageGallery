@@ -72,7 +72,7 @@ const Home = ({ checked, onChange }: IObject) => {
         <SearchBar
           searchValue={search}
           onSearch={setSearch}
-          placeholder={"Start Typing To See More"}
+          placeholder={"Search For Character Name"}
         />
       </Box> 
 

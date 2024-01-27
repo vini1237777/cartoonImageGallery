@@ -1,11 +1,9 @@
-import { color } from "../../utils/colors";
-import { getThemeBackgroundColor, rem } from "../../utils/functions";
+import { rem } from "../../utils/functions";
 
 export const styles =  {
 
     container: {
       borderRadius: "10%",
-      // marginBottom: rem(20),
       width:'90%'
     },
 

@@ -1,5 +1,4 @@
-import { themes } from "../../utils/contants";
-import { rem } from "../../utils/functions";
+import { getThemeBackgroundColor, getThemeTextColor, rem } from "../../utils/functions";
 import { IObject } from "../../utils/types";
 
 export const styles =(theme : IObject)=> {
@@ -8,15 +7,15 @@ export const styles =(theme : IObject)=> {
    container: {
      paddingLeft: rem(30),
      paddingRight: rem(30),
-     backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
-     color: theme?.palette?.mode === themes.dark ? "black" : "white",
+     backgroundColor: getThemeBackgroundColor(theme),
+     color: getThemeTextColor(theme)
    },
    switch: {
      display: "flex",
      justifyContent: "flex-end",
    },
    banner: {
-     backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
+     backgroundColor: getThemeBackgroundColor(theme),
      position: "sticky",
      top: 0,
      zIndex: 3,

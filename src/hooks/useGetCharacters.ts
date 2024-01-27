@@ -3,18 +3,18 @@ import { getCharacterUrl, request } from "../utils/functions";
 import { anyFunction } from "../utils/types";
 import useAjax from "./useAjax";
 
-// Custom hook to fetch character data with search and pagination functionality.
+// custom hook to fetch character data with search and pagination functionality.
 export const useGetCharacters = () => {
-  // State to manage the URL for the next set of data.
+  // state to manage the URL for the next set of data.
   const [next, setNext] = useState("");
 
-  // State to manage search input.
+  // state to manage search input.
   const [search, setSearch] = useState("");
 
-  // Using the custom useAjax hook for handling AJAX states.
+  // using the custom useAjax hook for handling AJAX states.
   const { data, loading, error, setError, setLoading, setData } = useAjax();
 
-  // Function to fetch character data, wrapped in useCallback to avoid unnecessary re-renders.
+  // using function to fetch character data, wrapped in useCallback to avoid unnecessary re-renders.
   const getCharacters = useCallback(
     ({
       pageNum,

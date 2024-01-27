@@ -1,5 +1,4 @@
-import { themes } from "../../utils/contants";
-import { rem } from "../../utils/functions";
+import { getThemeBackgroundColor, rem } from "../../utils/functions";
 import { IObject } from "../../utils/types";
 
 export const styles = (theme: IObject) => {
@@ -7,8 +6,7 @@ export const styles = (theme: IObject) => {
     container: {
      marginTop: rem(10), 
      padding: 0, 
-     height: "30%", 
-     backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
+     backgroundColor: getThemeBackgroundColor(theme)
     },
   };
 };

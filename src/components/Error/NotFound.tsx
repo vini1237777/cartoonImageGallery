@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
-import { rem } from "../../utils/functions";
 import { styles as errorStyles } from "./errorStyles";
 
 const NotFoundError = () => {
@@ -11,7 +10,7 @@ const NotFoundError = () => {
   return (
     <Box sx={{ ...styles.container }}>
       <Typography
-        style={{ ...styles.text, marginTop: rem(10), color: "black" }}
+        style={{ ...styles.text }}
         align="center"
       >
         Please try again! No result Found

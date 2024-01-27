@@ -6,18 +6,15 @@ import { styles } from "./itemCardStyles";
 
 const myGridItemStyle = {
   "&.MuiGrid-item": {
-    paddingLeft: rem(20),
-    paddingRight: rem(20),
-    paddingTop: 0,
+    paddingLeft: rem(5),
+    paddingRight: rem(5),
+    // paddingTop: 0,
   },
 };
 
 export const ItemCard = ({ item }: IObject) => {
-
-
   return (
     <Grid
-      container
       item
       xs={6}
       sm={4}
@@ -28,7 +25,7 @@ export const ItemCard = ({ item }: IObject) => {
       <Card
         sx={{
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
-          paddingBottom: rem(20),
+          paddingBottom: rem(10),
           width: "100%",
         }}
       >

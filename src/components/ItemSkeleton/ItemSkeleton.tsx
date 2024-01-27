@@ -8,11 +8,7 @@ const ItemSkeleton = ({ count}: IObject) => {
     const styles = itemSkeletonStyles(theme);
   return (
     <>
-      <Grid
-        container
-        spacing={3}
-        sx={{ ...styles.container }}
-      >
+      <Grid container spacing={3} sx={{ ...styles.container }}>
         {Array.from(new Array(count)).map((_, index) => (
           <Grid item xs={6} sm={4} md={4} lg={3} key={index}>
             <Card>
@@ -21,9 +17,9 @@ const ItemSkeleton = ({ count}: IObject) => {
                 width="100%"
                 sx={{
                   height: {
-                    xs: 130,
-                    sm: 150, 
-                    md: 200, 
+                    xs: 40,
+                    sm: 150,
+                    md: 200,
                   },
                 }}
               />

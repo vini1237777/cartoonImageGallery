@@ -1,17 +1,17 @@
 import { useState } from "react";
 
-// Custom hook for managing AJAX requests.
+// custom hook for managing AJAX requests.
 const useAjax = () => {
-  // State for storing response data.
+  // state for storing response data.
   const [data, setData] = useState<any[]>([]);
 
-  // State to track loading status.
+  // state to keep track of loading status.
   const [loading, setLoading] = useState(false);
 
-  // State to track if there's an error.
+  // state to keep track if there's an error.
   const [error, setError] = useState(false);
 
-  // Returning states and their setters for external use.
+  // returning states and their setters.
   return { data, loading, error, setData, setLoading, setError };
 };
 

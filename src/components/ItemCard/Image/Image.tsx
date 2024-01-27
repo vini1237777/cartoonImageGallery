@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
-import { Skeleton, useTheme } from '@mui/material';
+import { Skeleton } from '@mui/material';
 import { IObject } from '../../../utils/types';
-import { styles as imageStyles } from './imageStyles';
-
-
+import { styles } from './imageStyles';
 
 const Image = ({ item}: IObject) => {
 
   const [loaded, setLoaded] = useState<boolean | null>(null);
-   const theme = useTheme();
-   const styles = imageStyles(theme);
 
   return (
     <>

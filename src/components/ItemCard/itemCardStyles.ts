@@ -3,8 +3,8 @@ import { rem } from "../../utils/functions";
 export const styles =  {
 
     container: {
-      marginTop: rem(50),
       borderRadius: "10%",
+      marginBottom: rem(15)
     },
 
     text: {

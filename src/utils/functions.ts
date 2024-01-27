@@ -1,5 +1,7 @@
 import axios from "axios";
-import { fetchImagesUrl } from "./contants";
+import { color } from "./colors";
+import { fetchImagesUrl, themes } from "./contants";
+import { IObject } from "./types";
 
 
 export function rem(px: number, rootFontSize = 16) {
@@ -29,3 +31,12 @@ export const request = async (url: string) => {
     throw err;
   }
 }
+
+// function to change the text color based on the theme
+export const getThemeTextColor = (theme: IObject) =>theme?.palette?.mode === themes.dark ? color.white : color.black;
+
+// function to change the background color based on the theme
+export const getThemeBackgroundColor = (theme : IObject) => theme?.palette?.mode === themes.dark ? color.black : color.white;
+
+
+

@@ -12,11 +12,11 @@ import { useGetCharacters } from "../../hooks/useGetCharacters";
 import { useDebounceRef } from "../../hooks/useDebounce";
 
 const Home = ({ checked, onChange }: IObject) => {
-  // Using the Material-UI theme for styling.
+  // using the Material-UI theme for styling.
   const theme = useTheme();
   const styles = homeStyle(theme);
 
-  // Extracting necessary functions and states from our custom hook.
+  // getting necessary functions and states from our custom hook.
   const {
     data,
     loading,
@@ -29,10 +29,10 @@ const Home = ({ checked, onChange }: IObject) => {
     setNext,
   } = useGetCharacters();
 
-  // Custom debouncing for handling rapid search inputs.
+  // using custom debouncing for handling search inputs.
   const { debouncedValue, previousVal } = useDebounceRef(search, 500);
 
-  // Function to load more items.
+  // function to load more items while scrolling.
   const loadMore = () => {
     getCharacters({
       url: next,
@@ -40,13 +40,13 @@ const Home = ({ checked, onChange }: IObject) => {
     });
   };
 
-  // Initial data fetching on component mount.
+  // initial data fetching on component mount.
   useEffect(() => {
     getCharacters();
     // eslint-disable-next-line
   }, []);
 
-  // Effect for handling search functionality.
+  // useEffect for handling search functionality.
   useEffect(() => {
     if (debouncedValue || (!debouncedValue && previousVal.current)) {
       getCharacters({
@@ -61,26 +61,24 @@ const Home = ({ checked, onChange }: IObject) => {
     } // eslint-disable-next-line
   }, [debouncedValue, getCharacters, previousVal]);
 
-  // Rendering the Home component UI.
   return (
     <Box sx={{ ...styles.container }}>
       <Box sx={{ ...styles.banner }}>
-        <Box sx={{ ...styles.switch }}>
-          {/* Button for changing theme of the component (light and dark) */}
-          <Switch checked={checked} onChange={onChange} />
-        </Box>
+      <Box sx={{ ...styles.switch }}>
+      {/* button for changing theme of the component (light and dark) */}
+      <Switch checked={checked} onChange={onChange} />
+      </Box>
         <Heading />
         <SearchBar
           searchValue={search}
           onSearch={setSearch}
           placeholder={"Start Typing To See More"}
         />
-      </Box>
+      </Box> 
 
-        {error && <NotFoundError />}
-      {/* Conditional rendering based on loading and error states. */}
+      {error && <NotFoundError />}
       {loading && !data.length ? (
-        <ItemSkeleton count={6} />
+        <ItemSkeleton count={10} />
       ) : (
         !error && (
           <ItemList

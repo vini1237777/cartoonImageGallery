@@ -2,7 +2,7 @@ export const fetchImagesUrl = "https://rickandmortyapi.com/api/character";
 
 export const fetchError = "An error occurred while fetching data.";
 
-export const description = "TOON HUB";
+export const description = "CARTOON HUB";
 
 export const themes ={
     light: 'light',

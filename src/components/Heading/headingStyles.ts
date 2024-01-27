@@ -12,7 +12,6 @@ export const styles =(theme : IObject)=> {
         sm: "22px",
         md: "22px",
       },
-      fontFamily: "'Comic Neue', cursive",
     },
   };
 }

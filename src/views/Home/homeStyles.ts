@@ -21,8 +21,5 @@ export const styles =(theme : IObject)=> {
      top: 0,
      zIndex: 3,
    },
-   errorWrapper: {
-     backgroundColor: theme?.palette?.mode === themes.dark ? "black" : "white",
-   },
  };
 };

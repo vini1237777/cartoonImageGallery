@@ -6,7 +6,7 @@ export const styles = (theme: IObject) => {
     container: {
       marginTop: rem(10),
       backgroundColor: getThemeBackgroundColor(theme),
-      width: "87%",
+      width: "95%",
     },
     wrapper: {
       display: "flex",

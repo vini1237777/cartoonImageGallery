@@ -8,7 +8,7 @@ export const styles = (theme:IObject)=> {
 
   return {
     container: {
-      width: "90%",
+      width: "95%",
       backgroundColor: getThemeBackgroundColor(theme),
       paddingBottom: rem(80),
       paddingLeft: rem(20),

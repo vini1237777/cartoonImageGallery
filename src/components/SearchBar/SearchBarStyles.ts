@@ -9,11 +9,11 @@ export const styles = {
     flexDirection: "column",
     alignItems: "center",
     backgroundColor: color.white,
-    paddingBottom: rem(10),
+    paddingBottom: rem(30),
     position: "sticky",
     top: 55,
     zIndex: 3,
-    paddingTop: rem(20),
+    paddingTop: rem(60),
   },
   container_dark: {
     backgroundColor: color.darkGray,

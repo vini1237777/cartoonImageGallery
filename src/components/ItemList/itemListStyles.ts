@@ -10,7 +10,7 @@ export const styles = (theme:IObject)=> {
     container: {
       backgroundColor: getThemeBackgroundColor(theme),
       marginLeft: rem(2),
-      marginTop: rem(70),
+      marginTop: rem(30),
       maxWidth:'89%',
       display: 'flex',
       justifyContent:'center',

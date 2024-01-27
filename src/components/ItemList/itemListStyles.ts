@@ -8,11 +8,9 @@ export const styles = (theme:IObject)=> {
 
   return {
     container: {
-      width: "95%",
+      width: {xs:'89%',sm:'89%',md:'87%',},
       backgroundColor: getThemeBackgroundColor(theme),
-      paddingBottom: rem(80),
-      paddingLeft: rem(20),
-      paddingRight: rem(20),
+      marginLeft:rem(2)
     },
     wrapper: {
       display: "flex",
@@ -23,11 +21,9 @@ export const styles = (theme:IObject)=> {
       textAlign: "center",
       fontWeight: "bold",
       fontSize: rem(20),
-      marginTop: rem(60),
       color: customColors?.black,
       backgroundColor: customColors?.offWhite,
       paddingBottom: rem(10),
-      paddingTop: rem(10),
       width: "70%",
       borderRadius: rem(10),
     },

@@ -6,7 +6,7 @@ export const styles = (theme: IObject) => {
     container: {
       borderRadius: "10%",
       marginBottom: rem(15),
-      width:'90%',
+      width: { xs: "89%", sm: "89%", md: "87%" },
       backgroundColor: getThemeBackgroundColor(theme),
     },
     wrapper: {

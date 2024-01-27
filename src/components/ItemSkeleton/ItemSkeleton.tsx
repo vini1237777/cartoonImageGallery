@@ -29,6 +29,7 @@ const ItemSkeleton = ({ count}: IObject) => {
                     xs: 130,
                     sm: 150,
                     md: 310,
+                    lg:280
                   },
                 }}
               />

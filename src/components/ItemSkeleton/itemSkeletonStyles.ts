@@ -5,7 +5,6 @@ export const styles = (theme: IObject) => {
   return {
     container: {
      marginTop: rem(10), 
-     padding: 0, 
      backgroundColor: getThemeBackgroundColor(theme)
     },
   };

@@ -23,16 +23,19 @@ export const styles = (theme: IObject) => {
       justifyContent: "space-between",
     },
     text: {
-      color:  theme.palette.mode === themes.dark ? color.lightBlue : color.mediumBlue 
+      color:
+        theme.palette.mode === themes.dark ? color.lightBlue : color.mediumBlue,
     },
-    icon: { color:  theme.palette.mode === themes.dark ? color.lightBlue : color.mediumBlue },
+    icon: {
+      color:
+        theme.palette.mode === themes.dark ? color.lightBlue : color.mediumBlue,
+    },
     buttonWrapper: { display: "flex", gap: rem(10) },
     iconButton: {
       borderRadius: "10px",
       padding: 0,
-      width: "40px",
+      width:'40px',
       border: `1px solid lightGray`,
-
       "&:hover": {
         border: `1px solid ${getThemeTextColor(theme)}`,
       },

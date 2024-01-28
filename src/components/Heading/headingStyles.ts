@@ -7,11 +7,6 @@ export const styles =(theme : IObject)=> {
     text: {
       fontWeight: "bold",
       color: getThemeTextColor(theme),
-      fontSize: {
-        xs: "13px",
-        sm: "22px",
-        md: "22px",
-      },
     },
   };
 }

@@ -9,8 +9,8 @@ const Heading = () => {
 
   return (
     <Box>
-      <Typography sx={{ ...styles.text }} align="center" >
-        {description}
+      <Typography sx={{ ...styles.text }} align="center" variant="subtitle1" >
+       {description}
       </Typography>
     </Box>
   );

@@ -45,16 +45,16 @@ const App = () => {
       palette: { mode: themeMode },
     });
 
-    // const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
-    // if (themeColorMeta) {
-    //   themeColorMeta.setAttribute(
-    //     "content",
-    //     getThemeBackgroundColor({
-    //       palette: { mode: themeMode },
-    //     })
-    //   );
-    // }
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute(
+        "content",
+        getThemeBackgroundColor({
+          palette: { mode: themeMode },
+        })
+      );
+    }
   }, [themeMode]);
 
   // rendering the app with ThemeProvider to apply the selected theme.

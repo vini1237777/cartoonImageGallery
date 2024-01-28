@@ -45,7 +45,7 @@ const App = () => {
       palette: { mode: themeMode },
     });
 
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    // const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
     // if (themeColorMeta) {
     //   themeColorMeta.setAttribute(

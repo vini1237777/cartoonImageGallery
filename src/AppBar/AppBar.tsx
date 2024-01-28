@@ -1,5 +1,5 @@
 import React from "react";
-import AppBar from "@mui/material/AppBar";
+import {AppBar as MuiAppBar} from "@mui/material";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -13,7 +13,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { githubLink, rickandmortyapi } from "../utils/contants";
 
-export default function SearchAppBar({ isDarkMode, onThemeChange }: IObject) {
+export default function AppBar({ isDarkMode, onThemeChange }: IObject) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(anchorEl);
 
@@ -34,7 +34,7 @@ export default function SearchAppBar({ isDarkMode, onThemeChange }: IObject) {
 
   return (
     <Box sx={{ ...styles.container }}>
-      <AppBar sx={{ ...styles.wrapper }}>
+      <MuiAppBar sx={{ ...styles.wrapper }}>
         <Toolbar sx={{ ...styles.toolbar }}>
           <Heading />
           <Box sx={{ ...styles.buttonWrapper }}>
@@ -78,7 +78,7 @@ export default function SearchAppBar({ isDarkMode, onThemeChange }: IObject) {
             )}
           </Box>
         </Toolbar>
-      </AppBar>
+      </MuiAppBar>
       {renderModal}
     </Box>
   );

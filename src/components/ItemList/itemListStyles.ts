@@ -12,6 +12,7 @@ export const styles = (theme:IObject)=> {
       marginTop: rem(30),
       maxWidth: "89%",
       display: "flex",
+      // flexDirection: "column",
       justifyContent: "center",
       paddingRight: rem(22),
     },

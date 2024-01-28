@@ -9,7 +9,7 @@ import NotFoundError from "../../components/Error/NotFound";
 import { IObject } from "../../utils/types";
 import { useGetCharacters } from "../../hooks/useGetCharacters";
 import { useDebounceRef } from "../../hooks/useDebounce";
-import SearchAppBar from "../../AppBar/AppBar";
+import AppBar from "../../AppBar/AppBar";
 
 const Home = ({ isDarkMode, onThemeChange }: IObject) => {
   // using the Material-UI theme for styling.
@@ -63,7 +63,7 @@ const Home = ({ isDarkMode, onThemeChange }: IObject) => {
 
   return (
     <Box sx={{ ...styles.container }}>
-      <SearchAppBar isDarkMode={isDarkMode} onThemeChange={onThemeChange} />
+      <AppBar isDarkMode={isDarkMode} onThemeChange={onThemeChange} />
       <SearchBar
         searchValue={search}
         onSearch={setSearch}

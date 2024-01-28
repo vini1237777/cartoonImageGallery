@@ -10,7 +10,8 @@ export const styles = (theme:IObject)=>{
      responsiveImage: {
        width: "100%",
        height: "auto",
-       borderRadius: mode === themes.light ? rem(20) : "",
+       borderBottomRightRadius: mode === themes.light ? rem(20) : "",
+       borderBottomLeftRadius: mode === themes.light ? rem(20) : "",
      },
      skeleton: {
        position: "relative",

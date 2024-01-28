@@ -1,20 +1,19 @@
-import { getThemeBackgroundColor, rem } from "../../utils/functions";
+import { getThemeBackgroundColor, getThemeTextColor, rem } from "../../utils/functions";
 import { IObject } from "../../utils/types";
 
 
 export const styles = (theme:IObject)=> {
 
-  const { palette: {customColors} } = theme || {};
 
   return {
     container: {
       backgroundColor: getThemeBackgroundColor(theme),
       marginLeft: rem(2),
       marginTop: rem(30),
-      maxWidth:'89%',
-      display: 'flex',
-      justifyContent:'center',
-      paddingRight:rem(22)
+      maxWidth: "89%",
+      display: "flex",
+      justifyContent: "center",
+      paddingRight: rem(22),
     },
     wrapper: {
       display: "flex",
@@ -25,12 +24,12 @@ export const styles = (theme:IObject)=> {
       textAlign: "center",
       fontWeight: "bold",
       fontSize: rem(20),
-      color: customColors?.black,
-      backgroundColor: customColors?.offWhite,
+      color: getThemeTextColor(theme),
       paddingBottom: rem(10),
       width: "70%",
       borderRadius: rem(10),
-      marginTop: rem(20)
+      marginTop: rem(20),
+      backgroundColor: "#027fff",
     },
     textWrapper: {
       display: "flex",

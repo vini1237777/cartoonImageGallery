@@ -1,30 +1,36 @@
-import {Card, Grid, Typography} from "@mui/material";
-import { rem } from "../../utils/functions";
+import {Box, Card, Grid, Skeleton, Typography, useTheme} from "@mui/material";
+import { useState } from "react";
 import { IObject } from "../../utils/types";
 import Image from "./Image/Image";
-import { styles } from "./itemCardStyles";
+import { styles as itemCardStyles } from "./itemCardStyles";
 
 export const ItemCard = ({ item }: IObject) => {
+
+  const [loaded, setLoaded] = useState<boolean | null>(null);
+
+  const theme = useTheme();
+  const styles = itemCardStyles(theme);
+
   return (
-    <Grid
-      item
-      xs={6}
-      sm={4}
-      md={4}
-      lg={3}
-      sx={{ ...styles.container }}
-    >
+    <Grid item xs={6} sm={4} md={4} lg={3} sx={{ ...styles.container }}>
       <Card
         sx={{
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 1)",
-          paddingBottom: rem(10),
-          width: "100%",
+          ...styles.card,
         }}
       >
-        <Image item={item} />
-        <Typography align="center" sx={{ ...styles.text, fontWeight: "bold" }}>
-          {item.name}
-        </Typography>
+        <Image item={item} loaded={loaded} setLoaded={setLoaded} />
+        {loaded ? (
+          <Typography
+            align="center"
+            sx={{ ...styles.text, fontWeight: "bold" }}
+          >
+            {item.name}
+          </Typography>
+        ) : (
+          <Box sx={{ ...styles.textSkeleton }}>
+            <Skeleton variant="text" />
+          </Box>
+        )}
       </Card>
     </Grid>
   );

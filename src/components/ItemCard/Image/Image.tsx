@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
-import { Skeleton } from '@mui/material';
+import React from 'react'
+import { Skeleton, useTheme } from '@mui/material';
 import { IObject } from '../../../utils/types';
-import { styles } from './imageStyles';
+import { styles as imageStyles } from "./imageStyles";
 
-const Image = ({ item}: IObject) => {
+const Image = ({ item, loaded, setLoaded}: IObject) => {
 
-  const [loaded, setLoaded] = useState<boolean | null>(null);
+
+    const theme = useTheme();
+    const styles = imageStyles(theme);
 
   return (
     <>
@@ -14,13 +16,7 @@ const Image = ({ item}: IObject) => {
           variant="rectangular"
           width="100%"
           sx={{
-            position: "relative",
-            zIndex: 2,
-            height: {
-              xs: 130,
-              sm: 150,
-              md: 300,
-            },
+           ...styles.skeleton
           }}
         />
       )}

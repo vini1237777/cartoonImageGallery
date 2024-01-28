@@ -11,10 +11,5 @@ export const styles =(theme : IObject)=> {
      color: getThemeTextColor(theme),
      paddingTop: rem(20)
    },
-
-   switch: {
-     display: "flex",
-     justifyContent: "flex-end",
-   },
  };
 };

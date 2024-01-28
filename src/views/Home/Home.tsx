@@ -72,18 +72,20 @@ const Home = ({ isDarkMode, onThemeChange }: IObject) => {
 
       {error && !loading && <NotFoundError />}
 
-      {loading && !data.length ? (
-        <ItemSkeleton count={10} />
-      ) : (
-        !error && (
-          <ItemList
-            items={data}
-            loadMore={loadMore}
-            hasMore={!!next}
-            search={search}
-          />
-        )
-      )}
+      <Box>
+        {loading && !data.length ? (
+          <ItemSkeleton count={10} />
+        ) : (
+          !error && (
+            <ItemList
+              items={data}
+              loadMore={loadMore}
+              hasMore={!!next}
+              search={search}
+            />
+          )
+        )}
+      </Box>
     </Box>
   );
 };

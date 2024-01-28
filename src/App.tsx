@@ -41,13 +41,25 @@ const App = () => {
 
   useEffect(() => {
     // using to apply the background color to the body element
-    document.body.style.backgroundColor = getThemeBackgroundColor({palette:{mode:themeMode}});
+    document.body.style.backgroundColor = getThemeBackgroundColor({
+      palette: { mode: themeMode },
+    });
+
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+    // if (themeColorMeta) {
+    //   themeColorMeta.setAttribute(
+    //     "content",
+    //     getThemeBackgroundColor({
+    //       palette: { mode: themeMode },
+    //     })
+    //   );
+    // }
   }, [themeMode]);
 
   // rendering the app with ThemeProvider to apply the selected theme.
   return (
     <ThemeProvider theme={themeMode === "light" ? lightTheme : darkTheme}>
-        {/* Passing theme related props to the Home component */}
         <Home isDarkMode={themeMode === "dark"} onThemeChange={handleThemeChange} />
     </ThemeProvider>
   );
